@@ -41,9 +41,7 @@ float lastSensorValue;
 bool hold = false;
 unsigned long time_t;        
 
-                              //fim das variaveis globais muscle hand
-
-                              
+                              //fim das variaveis globais muscle hand               
 double accX, accY, accZ;
 double gyroX, gyroY, gyroZ;
 double magX, magY, magZ; 
@@ -176,7 +174,7 @@ void calibrate_muscle(){
 
   
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(74880);
   
   // calibrate musclehand function
   calibrate_muscle();   
@@ -315,6 +313,7 @@ void loop() {
 #endif
 
 #if 1
+  Serial.print(";");
   Serial.print(roll); Serial.print(";");
   Serial.print(pitch); Serial.print(";");
   Serial.print(yawNorm); Serial.print(";");
@@ -324,8 +323,8 @@ void loop() {
   //Serial.print("FirstYaw: "); Serial.print(firstYaw); Serial.print("\t");
 #endif
 
-  Serial.print("\r\n");
-  delay(100);
+  Serial.print("\n");
+  delay(50);
 }
 
 void updatePitchRoll() {
